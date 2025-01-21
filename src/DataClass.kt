@@ -1,14 +1,15 @@
-object Dbutils {
-    val url: String = "fodase"
-    val user: String = "hello"
-    val password: String = "fodase2"
+object DatabaseUtils {
+    val url: String = "https://github.com/guibzo.png"
+    val user: String = "bozo"
+    val password: String = "senhateste"
 
     fun connect() {
-        println("fodase55")
+        println("Conectando")
     }
 }
 
 fun main() {
+    // data class retorna uma string legível representando o objeto. seria parecido a ter uma classe com constructor no TS
     data class Values(val test: String, val world: String, val name: String, val age: Int, val heightInCm: Int)
 
     fun getValues(): Values {
@@ -42,13 +43,12 @@ fun main() {
         return Triple(test, world, myInt)
     }
 
-
-
+    // desestruturação
     val values = getValues()
     val (test2, world2) = getValues2()
     val (test3, world3, myInt) = getValues3()
 
-    Dbutils.connect()
+    DatabaseUtils.connect()
 
     println(values)
     println("$test2 $world2")

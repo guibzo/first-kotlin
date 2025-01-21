@@ -3,6 +3,8 @@ class Person(
     private var age: Int,
     private var heightInCentimeters: Int
 ) {
+    // o companion object cria membros estáticos - associados á própria classe, e não ás suas instâncias
+    // substitui o conceito de "static"
     companion object {
         private const val NUMBER_TWO: Int = 0
 
@@ -24,6 +26,14 @@ class Person(
     fun getAge(): Int {
         return age
     }
+
+
+    // a diferença de usar getters e setters via funções (como acima) pra usar get() e set() é que por funções, usa-se por exemplo Person.getHeight(),
+    // enquanto por getters, seria apenas Person.heightInMeters
+    // no setter, o parâmetro que ele recebe é o param enviado por quem usa o setter.
+    // pode-se usar o valor especial "field", que se refere ao próprio item (nesse caso, heightInMeters)
+    val heightInMeters: Float
+        get() = (heightInCentimeters / 100).toFloat()
 }
 
 open class Animal(private val name: String) {
@@ -106,5 +116,8 @@ enum class Buttons(private val className: String, private val textClassName: Str
 }
 
 fun main() {
+    Person.increment()
+    val person = Person(name = "bozo", age = 30, heightInCentimeters = 150)
 
+    println(person.getName())
 }
